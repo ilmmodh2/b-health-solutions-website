@@ -200,6 +200,14 @@ p{margin:0 0 1.1em;color:var(--ink-soft);}
 .dropdown a{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:11px 14px;border-radius:10px;}
 .dropdown a small{font-weight:500;color:var(--ink-faint);font-size:.8rem;}
 .dropdown a:hover{background:var(--cream);}
+/* two columns once the service list grows past a comfortable single column */
+.dropdown-wide{
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  min-width:580px;
+  left:50%;transform:translateX(-50%) translateY(8px);
+}
+.has-dropdown:hover .dropdown-wide,
+.has-dropdown.open .dropdown-wide{transform:translateX(-50%) translateY(0);}
 
 .header-cta{display:flex;align-items:center;gap:10px;}
 .mobile-cta{display:none;}
@@ -218,6 +226,11 @@ p{margin:0 0 1.1em;color:var(--ink-soft);}
   .main-nav a{padding:14px 12px;font-size:1.05rem;}
   .dropdown{position:static;box-shadow:none;border:none;margin:0 0 0 14px;opacity:1;visibility:visible;transform:none;display:none;padding:4px 0 4px 10px;border-left:2px solid var(--sand-line);}
   .has-dropdown.open .dropdown{display:flex;flex-direction:column;}
+  /* collapse the two-column desktop dropdown back to a plain stacked list */
+  .dropdown-wide{min-width:0;left:auto;transform:none;grid-template-columns:1fr;}
+  .has-dropdown:hover .dropdown-wide,
+  .has-dropdown.open .dropdown-wide{transform:none;}
+  .has-dropdown.open .dropdown-wide{display:flex;flex-direction:column;}
   .has-dropdown > a svg.chev{transform:none !important;}
   .has-dropdown.open > a svg.chev{transform:rotate(180deg) !important;}
   .nav-toggle{display:inline-flex;}
@@ -656,6 +669,21 @@ p{margin:0 0 1.1em;color:var(--ink-soft);}
 .faq-item.open .faq-q svg{transform:rotate(45deg);}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .35s var(--ease);}
 .faq-a p{padding:0 2px 22px;margin:0;max-width:70ch;}
+
+/* ---------------------------- FAQ page ---------------------------- */
+.faq-wrap{max-width:860px;}
+.faq-group{margin-bottom:54px;}
+.faq-group:last-child{margin-bottom:0;}
+.faq-group > h3{
+  font-family:var(--font-body);
+  font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;
+  color:var(--green-700);
+  margin-bottom:14px;padding-bottom:12px;
+  border-bottom:2px solid var(--green-100);
+}
+.faq-group .faq-item:first-child{border-top:none;}
+.faq-a a{color:var(--green-700);font-weight:700;}
+.faq-a strong{color:var(--navy-950);}
 
 /* ---------------------------- CTA band ---------------------------- */
 .cta-band{
