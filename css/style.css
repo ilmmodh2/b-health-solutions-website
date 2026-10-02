@@ -315,12 +315,13 @@ p{margin:0 0 1.1em;color:var(--ink-soft);}
 }
 .service-card{display:flex;flex-direction:column;height:100%;text-decoration:none;}
 .service-card:hover{transform:translateY(-6px); box-shadow:0 22px 44px -18px rgba(10,32,64,.28); border-color:transparent;}
-.service-card .icon{
+.card .icon{
   width:60px;height:60px;border-radius:16px;
-  display:flex;align-items:center;justify-content:center;
-  background:var(--green-100); color:var(--green-700); margin-bottom:20px;
+  display:flex;align-items:center;justify-content:center;flex:none;
+  margin-bottom:20px;
 }
-.service-card .icon svg{width:30px;height:30px;}
+.card .icon svg{width:30px;height:30px;}
+.service-card .icon{background:var(--green-100); color:var(--green-700);}
 .service-card h3{margin-bottom:.4em;}
 .service-card p{flex:1;}
 .service-card .learn{
