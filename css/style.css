@@ -185,6 +185,10 @@ p{margin:0 0 1.1em;color:var(--ink-soft);}
   border-radius:10px;
   transition:background .2s,color .2s;
 }
+/* nav labels must never break onto a second line */
+.main-nav > ul > li > a{white-space:nowrap;}
+.brand{flex:none;}
+.brand-text span{white-space:nowrap;}
 .main-nav > ul > li > a:hover,.main-nav a.active{background:var(--green-100);color:var(--green-700);}
 .has-dropdown{position:relative;}
 .has-dropdown > a svg.chev{width:11px;height:11px;transition:transform .2s;}
@@ -196,7 +200,10 @@ p{margin:0 0 1.1em;color:var(--ink-soft);}
   transition:opacity .2s var(--ease), transform .2s var(--ease), visibility .2s;
   border:1px solid rgba(20,30,50,.06);
 }
-.has-dropdown:hover .dropdown, .has-dropdown.open .dropdown{opacity:1;visibility:visible;transform:translateY(0);}
+/* :focus-within keeps the dropdown reachable by keyboard, not just mouse */
+.has-dropdown:hover .dropdown,
+.has-dropdown:focus-within .dropdown,
+.has-dropdown.open .dropdown{opacity:1;visibility:visible;transform:translateY(0);}
 .dropdown a{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:11px 14px;border-radius:10px;}
 .dropdown a small{font-weight:500;color:var(--ink-faint);font-size:.8rem;}
 .dropdown a:hover{background:var(--cream);}
@@ -207,6 +214,7 @@ p{margin:0 0 1.1em;color:var(--ink-soft);}
   left:50%;transform:translateX(-50%) translateY(8px);
 }
 .has-dropdown:hover .dropdown-wide,
+.has-dropdown:focus-within .dropdown-wide,
 .has-dropdown.open .dropdown-wide{transform:translateX(-50%) translateY(0);}
 
 .header-cta{display:flex;align-items:center;gap:10px;}
@@ -217,7 +225,7 @@ p{margin:0 0 1.1em;color:var(--ink-soft);}
 }
 .nav-toggle svg{width:22px;height:22px;}
 
-@media (max-width: 980px){
+@media (max-width: 1080px){
   .main-nav{position:fixed;inset:0 0 0 auto;width:min(360px,88vw);height:100vh;background:#fff;
     transform:translateX(100%); transition:transform .3s var(--ease); flex-direction:column; align-items:stretch;
     padding:90px 22px 30px; box-shadow:-20px 0 50px rgba(0,0,0,.15); overflow-y:auto;}
@@ -229,6 +237,7 @@ p{margin:0 0 1.1em;color:var(--ink-soft);}
   /* collapse the two-column desktop dropdown back to a plain stacked list */
   .dropdown-wide{min-width:0;left:auto;transform:none;grid-template-columns:1fr;}
   .has-dropdown:hover .dropdown-wide,
+  .has-dropdown:focus-within .dropdown-wide,
   .has-dropdown.open .dropdown-wide{transform:none;}
   .has-dropdown.open .dropdown-wide{display:flex;flex-direction:column;}
   .has-dropdown > a svg.chev{transform:none !important;}
@@ -247,6 +256,13 @@ p{margin:0 0 1.1em;color:var(--ink-soft);}
   .container{padding:0 18px;}
   .brand img{height:42px;}
   .brand-text strong{font-size:1.02rem;}
+}
+
+/* narrower desktops: tighten nav and drop the header Contact Us button,
+   which duplicates the Contact Us item already in the nav */
+@media (max-width:1240px) and (min-width:1081px){
+  .main-nav > ul > li > a{padding:12px 11px;font-size:.94rem;}
+  .header-cta .btn-outline{display:none;}
 }
 
 /* ---------------------------- Hero (home) ----------------------------
@@ -837,4 +853,11 @@ div.provider-portrait{display:flex;align-items:center;justify-content:center;}
   .topbar-social{display:none;}
   .steps{grid-template-columns:1fr;}
   .footer-bottom{flex-direction:column;text-align:center;}
+}
+
+/* Service Area sits across the full width at the foot of the services dropdown */
+.dropdown-wide .dd-wide-row{
+  grid-column:1 / -1;
+  margin-top:6px;padding-top:14px;
+  border-top:1px solid var(--sand-line);
 }
