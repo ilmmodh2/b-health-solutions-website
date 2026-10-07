@@ -728,6 +728,36 @@ div.provider-portrait{display:flex;align-items:center;justify-content:center;}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .35s var(--ease);}
 .faq-a p{padding:0 2px 22px;margin:0;max-width:70ch;}
 
+/* ---------------------------- Service area ---------------------------- */
+.county-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:24px;align-items:start;
+}
+.county-card{
+  background:#fff;border:1px solid var(--sand-line);border-radius:var(--radius-md);
+  padding:26px 24px;box-shadow:var(--shadow-card);
+}
+.county-card h3{
+  font-family:var(--font-body);font-size:.84rem;letter-spacing:.11em;text-transform:uppercase;
+  font-weight:800;color:var(--green-700);margin-bottom:14px;
+  padding-bottom:12px;border-bottom:2px solid var(--green-100);
+}
+.city-list{display:flex;flex-wrap:wrap;gap:7px;}
+.city-list li{
+  font-size:.88rem;font-weight:600;color:var(--navy-900);
+  background:var(--cream);border:1px solid var(--sand-line);
+  padding:5px 11px;border-radius:999px;
+}
+.area-note{
+  margin-top:36px;background:#fff;border:1px solid var(--sand-line);
+  border-left:4px solid var(--green-600);
+  border-radius:var(--radius-md);padding:26px 28px;
+}
+.area-note h4{display:flex;align-items:center;gap:10px;margin-bottom:.4em;}
+.area-note h4 svg{width:22px;height:22px;color:var(--green-700);flex:none;}
+.area-note p{margin-bottom:0;}
+.area-note a{color:var(--green-700);font-weight:700;}
+
 /* ---------------------------- FAQ page ---------------------------- */
 .faq-wrap{max-width:860px;}
 .faq-group{margin-bottom:54px;}
