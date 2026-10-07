@@ -586,6 +586,9 @@ p{margin:0 0 1.1em;color:var(--ink-soft);}
   display:flex;align-items:center;justify-content:center;color:#fff;
 }
 .provider-avatar svg{width:58px;height:58px;}
+/* photo variant: fill the circle without distortion */
+img.provider-avatar{display:block;object-fit:cover;object-position:50% 22%;}
+img.provider-portrait{object-fit:cover;object-position:50% 22%;}
 .credential-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}
 .credential-list .pill{background:var(--sand);border-color:transparent;}
 
